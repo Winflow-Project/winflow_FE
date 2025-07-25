@@ -1,18 +1,48 @@
 'use client'
 
-import Link from 'next/link'
+import CoreValue from '@/components/CoreValue'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+
 export default function HomePage() {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    router.push('/auth/signup')
+  }
   return (
-    <main className="flex flex-col items-center justify-center h-screen bg-white text-center">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Winflow</h1>
-      <div className="space-x-4">
-        <Link href="/auth/login">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded">Login</button>
-        </Link>
-        <Link href="/auth/signup">
-          <button className="bg-green-600 text-white px-4 py-2 rounded">Sign Up</button>
-        </Link>
-      </div>
-    </main>
+    <>
+      <Navbar />
+
+      <main className="bg-purple-50 px-4 md:px-12 py-16 text-center">
+        {/* Hero Section */}
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 max-w-3xl mx-auto leading-snug">
+          Where Knowledge Flows, Innovation Thrives, and Expertise Connects.
+        </h1>
+
+        <button onClick={handleSubmit} className="mt-6 bg-orange-400 hover:bg-orange-500 text-black px-10 py-2 rounded shadow">
+          Join Winflow
+        </button>
+
+        {/* Dashboard Image */}
+        <div className="mt-12 flex justify-center">
+          <Image
+            src="/Image.png"
+            alt="WinFlow Dashboard"
+            width={1000}
+            height={600}
+            className="rounded-xl shadow-lg"
+          />
+        </div>
+
+        {/* Core Values Section */}
+      </main>
+      <CoreValue />
+
+      <Footer />
+    </>
   )
 }
