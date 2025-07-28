@@ -1,7 +1,9 @@
 'use client'
 
+import ConversationSection from '@/components/Conversation'
 import CoreValue from '@/components/CoreValue'
 import Footer from '@/components/Footer'
+import FAQAccordion from '@/components/FQAs'
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -42,6 +44,9 @@ export default function HomePage() {
       </main>
       <CoreValue />
 
+      {/* Join the conversation */}
+      <ConversationSection />
+      <FAQAccordion />
       <Footer />
     </>
   )
