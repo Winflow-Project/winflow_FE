@@ -37,9 +37,9 @@ const FAQAccordion = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto my-4 px-6">
-            <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
-            <h4 className="text-center text-sm">Have a question about winflow?</h4>
+        <div className="max-w-2xl mx-auto my-4 px-6 space-x-6 space-y-6">
+            <h2 className="text-2xl font-bold mt-4 mb-6 text-center">Frequently Asked Questions</h2>
+            <h4 className="text-center mb-10 text-sm">Have a question about winflow?</h4>
             {faqData.map((item, index) => (
                 <div key={index} className="border p-4 rounded-2xl mt-2 border-gray-300 mb-4">
                     <button

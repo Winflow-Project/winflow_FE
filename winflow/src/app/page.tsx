@@ -1,10 +1,12 @@
 'use client'
 
+import Button from '@/components/Button'
 import ConversationSection from '@/components/Conversation'
 import CoreValue from '@/components/CoreValue'
 import Footer from '@/components/Footer'
 import FAQAccordion from '@/components/FQAs'
 import Navbar from '@/components/Navbar'
+import Start from '@/components/Start'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
@@ -25,9 +27,9 @@ export default function HomePage() {
           Where Knowledge Flows, Innovation Thrives, and Expertise Connects.
         </h1>
 
-        <button onClick={handleSubmit} className="mt-6 bg-orange-400 hover:bg-orange-500 text-black px-10 py-2 rounded shadow">
+        <Button onClick={handleSubmit} className="mt-6 bg-orange-400 hover:bg-orange-500 text-black px-10 py-2 rounded shadow">
           Join Winflow
-        </button>
+        </Button>
 
         {/* Dashboard Image */}
         <div className="mt-12 flex justify-center">
@@ -47,6 +49,7 @@ export default function HomePage() {
       {/* Join the conversation */}
       <ConversationSection />
       <FAQAccordion />
+      <Start />
       <Footer />
     </>
   )
