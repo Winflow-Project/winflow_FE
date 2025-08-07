@@ -27,7 +27,8 @@ const ForgotPassword = () => {
                     Open Mail
                 </button>
 
-                <span className='text-center text-sm cursor-pointer text-gray-500 mb-6 mt-8'>Didn't get an email? <button className='cursor-pointer text-gray-700'>Resend</button></span>
+                <span className='text-center text-sm cursor-pointer text-gray-500 mb-6 mt-8'>Didn't get an email?
+                    <button className='cursor-pointer text-gray-700'>Resend</button></span>
 
                 <div className="mt-8 flex justify-center">
                     <button

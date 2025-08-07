@@ -34,7 +34,7 @@ export default function OTPPage() {
         if (otp.every((digit) => digit !== "")) {
             const finalOtp = otp.join("");
             console.log("Submitted OTP:", finalOtp);
-            router.push('/OtpSuccess'); // Navigate to success page
+            router.push('/Pages/OtpSuccess'); // Navigate to success page
             // Here you can add your API call or Firebase OTP verification logic
             // Add API call or Firebase OTP verification here
         } else {

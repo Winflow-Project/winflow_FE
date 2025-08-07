@@ -17,7 +17,7 @@ export default function OtpPage2() {
                         <p className="text-lg text-gray-700 mb-6">Your account has been successfully created</p>
 
                         <div className="flex flex-col">
-                            <Link href="/personalize" className=" text-green-600 py-2 px-4 rounded-md transition duration-300 text-center flex flex-row items-center">
+                            <Link href="/Pages/Personalize" className=" text-green-600 py-2 px-4 rounded-md transition duration-300 text-center flex flex-row items-center">
                                 Proceed to personalize <img src="/left-arrow-stroke.svg" alt="left arrow" />
                             </Link>
 

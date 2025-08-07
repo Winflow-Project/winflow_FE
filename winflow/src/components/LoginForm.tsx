@@ -75,7 +75,7 @@ export default function LoginForm() {
                             />
                             Remember me
                         </label>
-                        <Link href="/forgotPassword" >Forgot Password?</Link>
+                        <Link href="/Pages/forgotPassword" >Forgot Password?</Link>
                     </div>
 
                     <button

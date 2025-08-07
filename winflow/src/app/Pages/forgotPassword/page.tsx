@@ -11,7 +11,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         // Handle email submission logic here
         alert(`Password reset link sent to ${email}`);
-        router.push('/checkMail');
+        router.push('/Pages/checkMail');
     };
 
     // const handleback = () => {

@@ -23,7 +23,7 @@ export default function SignupForm() {
         if (!isFormValid) return
 
         alert(`Signing up with ${email}`)
-        router.push('/Otp')
+        router.push('/Pages/Otp')
     }
 
     return (
