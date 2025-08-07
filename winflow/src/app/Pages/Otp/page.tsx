@@ -34,7 +34,7 @@ export default function OTPPage() {
         if (otp.every((digit) => digit !== "")) {
             const finalOtp = otp.join("");
             console.log("Submitted OTP:", finalOtp);
-            router.push('/OtpSuccess'); // Navigate to success page
+            router.push('/Pages/OtpSuccess'); // Navigate to success page
             // Here you can add your API call or Firebase OTP verification logic
             // Add API call or Firebase OTP verification here
         } else {
@@ -87,7 +87,7 @@ export default function OTPPage() {
                         Didn’t get the code? <a href="#" className="font-bold">Resend</a>
                     </p>
                     <div className="flex-1 h-px bg-gray-300"></div>
-                    <span className="flex flex-col items-center justify-center mt-5 cursor-pointer">
+                    <span onClick={() => window.history.back()} className="flex flex-col items-center justify-center mt-5 cursor-pointer">
                         <Image src="/backbutton.svg" alt="back logo" width={40} height={40} className="mb-2" />
                     </span>
                 </form>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Input from './input'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function LoginForm() {
     const [email, setEmail] = useState('')
@@ -74,7 +75,7 @@ export default function LoginForm() {
                             />
                             Remember me
                         </label>
-                        <a href="#" >Forgot Password?</a>
+                        <Link href="/Pages/forgotPassword" >Forgot Password?</Link>
                     </div>
 
                     <button

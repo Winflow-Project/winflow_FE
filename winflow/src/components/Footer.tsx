@@ -1,5 +1,6 @@
 import { FaEnvelope, FaPhone, FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import Button from "./Button";
 
 export default function Footer() {
     return (
@@ -24,12 +25,12 @@ export default function Footer() {
                                 placeholder="Email"
                                 className="px-3 py-2 rounded border border-gray-300 w-full max-w-[200px]"
                             />
-                            <button
+                            <Button
                                 type="submit"
                                 className="bg-orange-400 text-white px-4 py-2 cursor-pointer rounded hover:bg-orange-500"
                             >
                                 Submit
-                            </button>
+                            </Button>
                         </form>
                     </div>
                 </div>

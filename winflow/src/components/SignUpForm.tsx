@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LeftSignup from './LeftSignup'
 import { useRouter } from 'next/navigation'
+import Button from './Button'
 
 export default function SignupForm() {
     const [email, setEmail] = useState('')
@@ -22,7 +23,7 @@ export default function SignupForm() {
         if (!isFormValid) return
 
         alert(`Signing up with ${email}`)
-        router.push('/Otp')
+        router.push('/Pages/Otp')
     }
 
     return (
@@ -66,14 +67,14 @@ export default function SignupForm() {
                             onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
                         />
 
-                        <button
+                        <Button
                             type="submit"
                             className={`w-full py-2 mt-4 rounded text-white font-medium transition ${isFormValid ? 'bg-orange-400 hover:bg-orange-500' : 'bg-orange-200 cursor-not-allowed'
                                 }`}
                             disabled={!isFormValid}
                         >
                             Sign up
-                        </button>
+                        </Button>
 
                         <div className="flex items-center gap-4 my-6">
                             <div className="flex-1 h-px bg-gray-300"></div>
@@ -81,7 +82,7 @@ export default function SignupForm() {
                             <div className="flex-1 h-px bg-gray-300"></div>
                         </div>
 
-                        <div className="flex justify-center gap-4 mb-4">
+                        <div className="flex justify-center gap-4 mb-4 cursor-pointer">
                             <img
                                 src="/Frame 1618868336.png"
                                 alt="Sign up with Provider 1"
@@ -90,7 +91,7 @@ export default function SignupForm() {
                             <img
                                 src="/Frame 1618868337.png"
                                 alt="Sign up with Provider 2"
-                                className="w-10 h-10 border p-2 rounded-full"
+                                className="cursor-pointer w-10 h-10 border p-2 rounded-full"
                             />
                         </div>
 
