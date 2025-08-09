@@ -35,7 +35,7 @@ const Interests = () => {
             <div className="max-w-3xl w-full bg-white rounded-xl p-6 shadow-md border">
                 <h2 className="text-xl font-semibold text-center mb-1">Interest(s)</h2>
                 <p className="text-sm text-center text-gray-500 mb-6">
-                    Select the topics you'd like to see on your home feed.
+                    Select the topics you&apos;d like to see on your home feed.
                 </p>
 
                 <section className="mb-6">

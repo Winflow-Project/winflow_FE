@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import Button from "./Button";
+import Image from "next/image";
 
 
 
@@ -30,10 +31,12 @@ export default function Start() {
 
             {/* Right side */}
             <div className="md:w-1/2">
-                <img
+                <Image
                     src="/ready.png"
                     alt="Ready to start"
                     className="w-full max-w-md mx-auto md:mx-0"
+                    width={500}
+                    height={500}
                 />
             </div>
         </div>

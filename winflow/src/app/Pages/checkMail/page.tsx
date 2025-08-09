@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState('');
+    const [email, _setEmail] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

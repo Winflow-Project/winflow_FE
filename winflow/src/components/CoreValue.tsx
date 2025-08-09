@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CoreValue() {
     const values = [
         {
@@ -53,7 +55,7 @@ export default function CoreValue() {
                             key={index}
                             className="flex flex-col items-center justify-center border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-300"
                         >
-                            <div><img src={value.icon} alt={value.title} /></div>
+                            <div><Image src={value.icon} alt={value.title} width={50} height={50} /></div>
                             <h3 className="text-lg font-semibold text-gray-800 mb-3">{value.title}</h3>
                             <p className="text-sm text-center text-gray-600 mx-auto leading-snug max-w-xl mt-2">{value.description}</p>
                         </div>
