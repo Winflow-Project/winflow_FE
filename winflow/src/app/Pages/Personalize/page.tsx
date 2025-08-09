@@ -22,7 +22,7 @@ const Personalize = () => {
                 </button>
 
                 <h2 className="text-xl font-semibold mb-2">About you</h2>
-                <p className="text-sm text-gray-500 mb-6">Let's get to know You.</p>
+                <p className="text-sm text-gray-500 mb-6">Let&apos;s get to know You.</p>
                 <p className="mb-4 font-medium text-gray-700">How do you Identify?</p>
 
                 <div className="space-y-4">

@@ -94,8 +94,8 @@ export default function LoginForm() {
 
 
                     <div className="flex justify-center gap-4 mb-4">
-                        <img src="/Frame 1618868336.png" className="w-10 h-10 border p-2 rounded-full" />
-                        <img src="/Frame 1618868337.png" className="w-10 h-10 border p-2 rounded-full" />
+                        <Image src="/Frame 1618868336.png" className="w-10 h-10 border p-2 rounded-full" alt='logo' width={50} height={50} />
+                        <Image src="/Frame 1618868337.png" alt='logo' className="w-10 h-10 border p-2 rounded-full" width={50} height={50} />
                     </div>
 
                     <p className="text-sm text-center">

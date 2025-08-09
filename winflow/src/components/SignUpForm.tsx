@@ -83,15 +83,19 @@ export default function SignupForm() {
                         </div>
 
                         <div className="flex justify-center gap-4 mb-4 cursor-pointer">
-                            <img
+                            <Image
                                 src="/Frame 1618868336.png"
                                 alt="Sign up with Provider 1"
                                 className="w-10 h-10 border p-2 rounded-full"
+                                width={50}
+                                height={50}
                             />
-                            <img
+                            <Image
                                 src="/Frame 1618868337.png"
                                 alt="Sign up with Provider 2"
                                 className="cursor-pointer w-10 h-10 border p-2 rounded-full"
+                                width={50}
+                                height={50}
                             />
                         </div>
 
