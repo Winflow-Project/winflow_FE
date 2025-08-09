@@ -30,7 +30,7 @@ export default function LoginForm() {
                         <Image src="/Logo Frame 3.png" alt="WinFlow Logo" width={150} height={40} className="mb-2" />
                     </h1>
                     <h2 className="text-xl font-semibold text-gray-700 mb-2">Welcome Back 👋</h2>
-                    <p className="text-sm text-gray-600">It's nice to see you again</p>
+                    <p className="text-sm text-gray-600">It&apos;s nice to see you again</p>
                 </div>
 
                 {/* Right Side */}
@@ -99,7 +99,7 @@ export default function LoginForm() {
                     </div>
 
                     <p className="text-sm text-center">
-                        Don’t have an account?{' '}
+                        Don&apos;t have an account?{' '}
                         <a href="/auth/signup" className="font-medium">Sign Up</a>
                     </p>
                 </form>

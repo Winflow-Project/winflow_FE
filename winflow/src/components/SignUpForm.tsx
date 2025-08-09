@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Input from './input'
 import Image from 'next/image'
-import Link from 'next/link'
 import LeftSignup from './LeftSignup'
 import { useRouter } from 'next/navigation'
 import Button from './Button'
@@ -108,7 +107,7 @@ export default function SignupForm() {
                     </form>
 
                     <p className="text-xs text-gray-400 mt-4 text-center max-w-md">
-                        By signing up, you agree to Winflow’s{' '}
+                        By signing up, you agree to Winflow&apos;s{' '}
                         <a href="#" className="underline">
                             Conditions of Use
                         </a>{' '}

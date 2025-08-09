@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 type ButtonProps = {
     children: React.ReactNode;
     href?: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     className?: string;
     type?: "button" | "submit" | "reset";
     variant?: "primary" | "secondary" | "outline";
