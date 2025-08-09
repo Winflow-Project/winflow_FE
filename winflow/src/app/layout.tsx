@@ -1,7 +1,8 @@
-import { PageLoaderProvider } from "@/context/pageLoaderContext/PageLoaderContext";
 import "./globals.css";
+import { ClientProviders } from "./Client-providers";
+import { PageLoaderProvider } from "@/context/pageLoaderContext/PageLoaderContext";
 import PageLoader from "@/common/loader/pageloader";
-
+import DarkModeToggle from "@/components/DarModeToggle/DarkModeToggle";
 
 export const metadata = {
   title: "Winflow",
@@ -10,22 +11,24 @@ export const metadata = {
     icon: "/Logo Frame 3.png",
     apple: "/apple-touch-icon.png",
   },
-}
-
-
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body>
-        <PageLoaderProvider>
-          <PageLoader />
-          {children}
-        </PageLoaderProvider>
+        <ClientProviders>
+          <PageLoaderProvider>
+            <PageLoader />
+
+            {children}
+
+          </PageLoaderProvider>
+        </ClientProviders>
       </body>
     </html>
   );
