@@ -2,7 +2,9 @@ import "./globals.css";
 import { ClientProviders } from "./Client-providers";
 import { PageLoaderProvider } from "@/context/pageLoaderContext/PageLoaderContext";
 import PageLoader from "@/common/loader/pageloader";
-import DarkModeToggle from "@/components/DarModeToggle/DarkModeToggle";
+import DarkModeWrapper from "@/components/DarkModeWrapper";
+
+
 
 export const metadata = {
   title: "Winflow",
@@ -22,12 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ClientProviders>
-          <PageLoaderProvider>
-            <PageLoader />
-
-            {children}
-
-          </PageLoaderProvider>
+          <DarkModeWrapper>
+            <PageLoaderProvider>
+              <PageLoader />
+              {children}
+            </PageLoaderProvider>
+          </DarkModeWrapper>
         </ClientProviders>
       </body>
     </html>
