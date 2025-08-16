@@ -1,33 +1,21 @@
 "use client";
 
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { SetDarkModeAction } from './actionTypes/DarkModeActionTypes';
-import DarkModeReducer from './reducers/DarkModeReducer';
+import darkModeReducer from './slice/DarkModeSlice/darkModeSlice'
 
-// Combine multiple reducers
 const rootReducer = combineReducers({
-    darkMode: DarkModeReducer,
+    darkMode: darkModeReducer,
 });
 
-// Define RootState and RootAction types
-export type RootState = ReturnType<typeof rootReducer>;
-export type RootAction = SetDarkModeAction;
-
-// Redux Persist config
 const persistConfig = {
     key: "root",
     storage,
 };
 
-// Persisted reducer
-const persistedReducer = persistReducer<RootState, RootAction>(
-    persistConfig,
-    rootReducer
-);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Create the Redux store with persisted reducer
 export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
@@ -36,5 +24,8 @@ export const store = configureStore({
         }),
 });
 
-// Create the persistor
 export const persistor = persistStore(store);
+
+// Types
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
