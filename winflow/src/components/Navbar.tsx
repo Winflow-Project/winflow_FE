@@ -18,8 +18,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`px-20 py-8 shadow-sm transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'
-                }`}
+            className='px-20 py-8 shadow-sm transition-colors duration-300 bg-white text-black dark:bg-gray-900 dark:text-white'
         >
             <div className="flex justify-between items-center">
                 {/* Logo */}
@@ -48,8 +47,8 @@ export default function Navbar() {
                 <Button
                     onClick={() => dispatch(setDarkMode(!darkMode))}
                     className={`hidden md:block px-3 py-1 rounded-full text-sm border transition-colors ${darkMode
-                            ? 'bg-white text-black border-gray-400'
-                            : 'bg-gray-900 text-white border-gray-700'
+                        ? 'bg-white text-black border-gray-400'
+                        : 'bg-gray-900 text-white border-gray-700'
                         }`}
                 >
                     {darkMode ? 'Light Mode' : 'Dark Mode'}
@@ -60,8 +59,8 @@ export default function Navbar() {
                     <Button
                         onClick={() => dispatch(setDarkMode(!darkMode))}
                         className={`px-3 py-1 rounded-full text-sm border transition-colors ${darkMode
-                                ? 'bg-white text-black border-gray-400'
-                                : 'bg-gray-900 text-white border-gray-700'
+                            ? 'bg-white text-black border-gray-400'
+                            : 'bg-gray-900 text-white border-gray-700'
                             }`}
                     >
                         {darkMode ? '☀️' : '🌙'}
