@@ -5,8 +5,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/redux/store';
 import Button from './Button';
-import { setDarkMode } from '@/redux/actions/DarkModeAction';
-
+import { setDarkMode } from '../redux/slice/DarkModeSlice/darkModeSlice';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -49,8 +48,8 @@ export default function Navbar() {
                 <Button
                     onClick={() => dispatch(setDarkMode(!darkMode))}
                     className={`hidden md:block px-3 py-1 rounded-full text-sm border transition-colors ${darkMode
-                        ? 'bg-white text-black border-gray-400'
-                        : 'bg-gray-900 text-white border-gray-700'
+                            ? 'bg-white text-black border-gray-400'
+                            : 'bg-gray-900 text-white border-gray-700'
                         }`}
                 >
                     {darkMode ? 'Light Mode' : 'Dark Mode'}
@@ -61,8 +60,8 @@ export default function Navbar() {
                     <Button
                         onClick={() => dispatch(setDarkMode(!darkMode))}
                         className={`px-3 py-1 rounded-full text-sm border transition-colors ${darkMode
-                            ? 'bg-white text-black border-gray-400'
-                            : 'bg-gray-900 text-white border-gray-700'
+                                ? 'bg-white text-black border-gray-400'
+                                : 'bg-gray-900 text-white border-gray-700'
                             }`}
                     >
                         {darkMode ? '☀️' : '🌙'}
