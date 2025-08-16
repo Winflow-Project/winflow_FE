@@ -1,14 +1,14 @@
 'use client';
-import React, { useEffect } from "react"
-import SunIcon from "../SunIcon/SunIcon"
-import MoonIcon from "../MoonIcon/MoonIcon"
-import { useDispatch, useSelector } from 'react-redux';
-import { setDarkMode } from '../../redux/actions/DarkModeAction';
-import { RootState } from '../../redux/store';
+import React, { useEffect } from "react";
+import SunIcon from "../SunIcon/SunIcon";
+import MoonIcon from "../MoonIcon/MoonIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../../redux/store";
+import { setDarkMode } from "../../redux/slice/DarkModeSlice/darkModeSlice";
 
 const DarkModeToggle = () => {
-    const darkMode = useSelector((state: RootState) => state.darkMode.darkMode);
-    const dispatch = useDispatch();
+    const darkMode = useSelector((state: RootState) => state.darkMode.enabled);
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleDarkModeTrue = () => {
         dispatch(setDarkMode(true));
@@ -35,6 +35,6 @@ const DarkModeToggle = () => {
             )}
         </li>
     );
-}
+};
 
 export default DarkModeToggle;
