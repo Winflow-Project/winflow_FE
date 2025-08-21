@@ -47,7 +47,7 @@ const FAQAccordion = () => {
                         onClick={() => toggleAccordion(index)}
                     >
                         {item.question}
-                        <span>{activeIndex === index ? "-" : "v"}</span>
+                        <span>{activeIndex === index ? "-" : "▿∨"}</span>
                     </button>
                     {activeIndex === index && (
                         <div className="pb-4 text-gray-700">{item.answer}</div>

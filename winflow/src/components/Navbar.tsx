@@ -63,6 +63,9 @@ export default function Navbar() {
                         Core Values
                     </span>
                     <span
+                        onClick={() =>
+                            document.getElementById("faqs")?.scrollIntoView({ behavior: "smooth" })
+                        }
                         className={`cursor-pointer hover:opacity-80 ${darkMode ? 'text-gray-300' : 'text-gray-500'
                             }`}
                     >

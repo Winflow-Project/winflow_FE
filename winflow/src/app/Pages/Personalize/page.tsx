@@ -23,7 +23,7 @@ const Personalize = () => {
         updateProfileMutation.mutate(
             { gender }, // backend expects this field
             {
-                onSuccess: (updatedUser: any) => {
+                onSuccess: (updatedUser) => {
                     toast.success("Profile updated 🎉");
                     dispatch(
                         setAuth({
@@ -33,7 +33,7 @@ const Personalize = () => {
                     );
                     router.push("/Pages/Newsletter"); // Navigate to next page
                 },
-                onError: (err: any) => {
+                onError: (err) => {
                     toast.error(err?.message || "Failed to update profile");
                 },
             }

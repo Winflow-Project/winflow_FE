@@ -17,14 +17,12 @@ const ForgotPassword = () => {
         forgotPasswordMutation.mutate(
             { email },
             {
-                onSuccess: (data: any) => {
-                    // ✅ Show backend success message instead of hard-coded one
+                onSuccess: (data) => {
                     const msg = data?.message || 'Password reset link sent!';
                     toast.success(msg);
                     router.push('/Pages/checkMail');
                 },
-                onError: (error: any) => {
-                    // ✅ Show backend error message if available
+                onError: (error) => {
                     const msg =
                         error?.response?.data?.message ||
                         error?.message ||

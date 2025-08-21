@@ -70,7 +70,7 @@ export const useSignUpMutation = () => {
                 toast.error("Signup failed: No token returned");
             }
         },
-        onError: (error: any) => {
+        onError: (error) => {
             toast.error(error?.message || "Signup failed ❌");
         },
     });
@@ -98,7 +98,7 @@ export const useLoginMutation = () => {
                 toast.error("Login failed: No token returned");
             }
         },
-        onError: (error: any) => {
+        onError: (error) => {
             toast.error(error?.message || "Login failed ❌");
         },
     });
@@ -151,7 +151,7 @@ export const useUpdateUserProfileMutation = () => {
             dispatch(setAuth({ user: updatedUser, access: "", refresh: "" })); // keep token as is
             toast.success("Profile updated successfully!");
         },
-        onError: (err: any) => {
+        onError: (err) => {
             toast.error(err?.message || "Failed to update profile");
         },
     });

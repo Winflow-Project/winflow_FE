@@ -120,14 +120,14 @@ export default function SignupForm() {
                                 <span
                                     key={i}
                                     className={`flex items-center gap-1 ${rule.valid
-                                        ? 'text-green-600'
-                                        : 'text-gray-400'
+                                            ? 'text-green-600'
+                                            : 'text-gray-400'
                                         }`}
                                 >
                                     <span
                                         className={`w-2 h-2 rounded-full ${rule.valid
-                                            ? 'bg-green-500'
-                                            : 'bg-gray-300'
+                                                ? 'bg-green-500'
+                                                : 'bg-gray-300'
                                             }`}
                                     ></span>
                                     {rule.label}

@@ -43,7 +43,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     useEffect(() => {
         const checkAuth = () => {
             const isAuthPage =
-                pathname === "/auth/login" || pathname === "/auth/signup" || pathname === "/Pages/forgotPassword" || pathname === "/Pages/Otp" || pathname === "/Pages/Newsletter" || pathname === "/Pages/OtpSuccess" || pathname === "/Pages/Personilise" || pathname === "/Pages/checkMail";
+                pathname === "/auth/login" || pathname === "/auth/signup" || pathname === "/Pages/forgotPassword" || pathname === "/Pages/Otp" || pathname === "/Pages/Newsletter" || pathname === "/Pages/OtpSuccess" || pathname === "/" || pathname === "/Pages/Personilise" || pathname === "/Pages/checkMail";
 
             if (!accessToken && !isAuthPage) {
                 let from = pathname;
