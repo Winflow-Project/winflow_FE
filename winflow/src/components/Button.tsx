@@ -10,6 +10,7 @@ type ButtonProps = {
     type?: "button" | "submit" | "reset";
     variant?: "primary" | "secondary" | "outline";
     disabled?: boolean;
+    loading?: boolean; // ✅ make loading optional
 };
 
 const baseStyles =
@@ -18,12 +19,14 @@ const baseStyles =
 const variants = {
     primary: "bg-orange-500 text-white hover:bg-orange-600",
     secondary: "bg-gray-700 text-white hover:bg-gray-800",
-    outline: "border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white",
+    outline:
+        "border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white",
 };
 
 const Button: React.FC<ButtonProps> = ({
     children,
     href,
+    loading = false,
     onClick,
     className = "",
     type = "button",
@@ -34,15 +37,20 @@ const Button: React.FC<ButtonProps> = ({
 
     if (href) {
         return (
-            <Link href={href}>
-                <a className={combinedClasses}>{children}</a>
+            <Link href={href} className={combinedClasses}>
+                {loading ? "Loading..." : children}
             </Link>
         );
     }
 
     return (
-        <button type={type} onClick={onClick} className={combinedClasses} disabled={disabled}>
-            {children}
+        <button
+            type={type}
+            onClick={onClick}
+            className={combinedClasses}
+            disabled={disabled || loading}
+        >
+            {loading ? "Loading..." : children}
         </button>
     );
 };

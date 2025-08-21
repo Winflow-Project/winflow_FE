@@ -1,24 +1,18 @@
-'use client';
-import React from "react";
-import SunIcon from "../SunIcon/SunIcon";
-import MoonIcon from "../MoonIcon/MoonIcon";
+"use client";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "@/redux/store";
-import { setDarkMode } from "../../redux/slice/DarkModeSlice/darkModeSlice";
+import { RootState } from "@/redux/store";
+import { toggleDarkMode } from "@/redux/slice/DarkModeSlice/darkModeSlice";
 
-const DarkModeToggle = () => {
-    const darkMode = useSelector((state: RootState) => state.darkMode.enabled);
-    const dispatch = useDispatch<AppDispatch>();
+export default function DarkModeToggle() {
+    const dispatch = useDispatch();
+    const enabled = useSelector((state: RootState) => state.darkMode.enabled);
 
     return (
-        <li>
-            {darkMode ? (
-                <MoonIcon onClick={() => dispatch(setDarkMode(false))} />
-            ) : (
-                <SunIcon onClick={() => dispatch(setDarkMode(true))} />
-            )}
-        </li>
+        <button
+            onClick={() => dispatch(toggleDarkMode())}
+            className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 dark:text-white"
+        >
+            {enabled ? "Switch to Light" : "Switch to Dark"}
+        </button>
     );
-};
-
-export default DarkModeToggle;
+}

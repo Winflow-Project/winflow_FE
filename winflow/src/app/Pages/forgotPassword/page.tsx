@@ -1,23 +1,39 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { useForgotPasswordMutation } from '@/api/use-auth';
+import { toast } from 'react-toastify';
+import Button from '@/components/Button';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
-    const router = useRouter()
+    const router = useRouter();
 
+    const forgotPasswordMutation = useForgotPasswordMutation();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle email submission logic here
-        alert(`Password reset link sent to ${email}`);
-        router.push('/Pages/checkMail');
+
+        forgotPasswordMutation.mutate(
+            { email },
+            {
+                onSuccess: (data: any) => {
+                    // ✅ Show backend success message instead of hard-coded one
+                    const msg = data?.message || 'Password reset link sent!';
+                    toast.success(msg);
+                    router.push('/Pages/checkMail');
+                },
+                onError: (error: any) => {
+                    // ✅ Show backend error message if available
+                    const msg =
+                        error?.response?.data?.message ||
+                        error?.message ||
+                        'Failed to send reset link';
+                    toast.error(msg);
+                },
+            }
+        );
     };
-
-    // const handleback = () => {
-    //     window.history.back();
-
-    // };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
@@ -36,20 +52,23 @@ const ForgotPassword = () => {
                     <input
                         id="email"
                         type="email"
-                        placeholder="info@youmail.com"
+                        placeholder="info@yourmail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-4 py-2 border-b-2 border-purple-400 focus:outline-none focus:border-purple-600 transition"
                         required
                     />
 
-                    <button
-
+                    <Button
                         type="submit"
-                        className="w-full mt-6 bg-orange-400 hover:bg-orange-500 text-white font-medium py-2.5 rounded-md shadow-md transition duration-200"
+                        disabled={forgotPasswordMutation.isPending}
+                        className={`w-full mt-6 py-2.5 rounded-md shadow-md font-medium transition ${forgotPasswordMutation.isPending
+                            ? 'bg-orange-200 cursor-not-allowed'
+                            : 'bg-orange-400 hover:bg-orange-500 text-white'
+                            }`}
                     >
-                        Continue
-                    </button>
+                        {forgotPasswordMutation.isPending ? 'Sending...' : 'Continue'}
+                    </Button>
                 </form>
 
                 <div className="mt-8 flex justify-center">
