@@ -1,21 +1,50 @@
-"use client"
-import { useRouter } from 'next/navigation';
-import React from 'react';
-
+"use client";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { toast } from "react-toastify";
+import { useUpdateUserProfileMutation } from "@/api/use-auth";
+import { setAuth } from "@/redux/slice/authSlice";
 
 const Personalize = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
+    const user = useSelector((state: RootState) => state.auth.user);
+    const updateProfileMutation = useUpdateUserProfileMutation();
 
     const handleSelection = (gender: string) => {
-        console.log('Selected gender:', gender);
-        router.push('/Pages/Newsletter'); // Navigate to next page
+        if (!user) {
+            toast.error("User not found. Please log in again.");
+            router.push("/auth/login");
+            return;
+        }
+
+        updateProfileMutation.mutate(
+            { gender }, // backend expects this field
+            {
+                onSuccess: (updatedUser: any) => {
+                    toast.success("Profile updated 🎉");
+                    dispatch(
+                        setAuth({
+                            user: { ...user, ...updatedUser },
+                            access: "", // keep same token
+                        })
+                    );
+                    router.push("/Pages/Newsletter"); // Navigate to next page
+                },
+                onError: (err: any) => {
+                    toast.error(err?.message || "Failed to update profile");
+                },
+            }
+        );
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center relative">
                 <button
-                    onClick={() => router.push('/interests')}
+                    onClick={() => router.push("/interests")}
                     className="absolute top-4 right-4 text-sm text-gray-500 hover:text-black"
                 >
                     Skip
@@ -27,16 +56,18 @@ const Personalize = () => {
 
                 <div className="space-y-4">
                     <button
-                        onClick={() => handleSelection('Male')}
-                        className="w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-md font-semibold transition"
+                        onClick={() => handleSelection("Male")}
+                        disabled={updateProfileMutation.isPending}
+                        className="w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-md font-semibold transition disabled:opacity-50"
                     >
-                        Male
+                        {updateProfileMutation.isPending ? "Saving..." : "Male"}
                     </button>
                     <button
-                        onClick={() => handleSelection('Female')}
-                        className="w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-md font-semibold transition"
+                        onClick={() => handleSelection("Female")}
+                        disabled={updateProfileMutation.isPending}
+                        className="w-full bg-orange-400 hover:bg-orange-500 text-white py-2 rounded-md font-semibold transition disabled:opacity-50"
                     >
-                        Female
+                        {updateProfileMutation.isPending ? "Saving..." : "Female"}
                     </button>
                 </div>
             </div>

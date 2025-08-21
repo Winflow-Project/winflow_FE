@@ -28,13 +28,13 @@ const ForgotPassword = () => {
                     <Button className='cursor-pointer text-gray-700'>Resend</Button></span>
 
                 <div className="mt-8 flex justify-center">
-                    <Button
-                        type="submit"
+                    <button
+                        type="button"
                         onClick={() => window.history.back()}
-                        className="w-10 cursor-pointer h-10 border border-orange-400 rounded-full flex items-center justify-center text-orange-500 hover:bg-gray-100 transition"
+                        className="w-10 h-10 border border-orange-400 rounded-full flex items-center justify-center text-orange-500 hover:bg-gray-100 transition"
                     >
                         ←
-                    </Button>
+                    </button>
                 </div>
             </div>
         </div>

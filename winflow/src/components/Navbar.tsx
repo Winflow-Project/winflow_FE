@@ -27,22 +27,6 @@ export default function Navbar() {
                     <span className="text-purple-600 italic">Flow</span>
                 </div>
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex space-x-6 text-sm">
-                    <span
-                        className={`cursor-pointer hover:opacity-80 ${darkMode ? 'text-gray-300' : 'text-gray-500'
-                            }`}
-                    >
-                        Core Values
-                    </span>
-                    <span
-                        className={`cursor-pointer hover:opacity-80 ${darkMode ? 'text-gray-300' : 'text-gray-500'
-                            }`}
-                    >
-                        FAQs
-                    </span>
-                </div>
-
                 {/* Dark Mode Toggle */}
                 <Button
                     onClick={() => dispatch(setDarkMode(!darkMode))}
@@ -51,7 +35,7 @@ export default function Navbar() {
                         : 'bg-gray-900 text-white border-gray-700'
                         }`}
                 >
-                    {darkMode ? 'Light Mode' : 'Dark Mode'}
+                    {darkMode ? '☀️' : '🌙'}
                 </Button>
 
                 {/* Hamburger Menu (Mobile) */}
@@ -69,6 +53,27 @@ export default function Navbar() {
                         {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
                     </Button>
                 </div>
+
+                {/* Desktop Links */}
+                <div className="hidden md:flex space-x-6 text-sm">
+                    <span
+                        className={`cursor-pointer hover:opacity-80 ${darkMode ? 'text-gray-300' : 'text-gray-500'
+                            }`}
+                    >
+                        Core Values
+                    </span>
+                    <span
+                        className={`cursor-pointer hover:opacity-80 ${darkMode ? 'text-gray-300' : 'text-gray-500'
+                            }`}
+                    >
+                        <a href='#fqs'>
+
+                            FAQs
+                        </a>
+                    </span>
+                </div>
+
+
             </div>
 
             {/* Mobile Links */}
