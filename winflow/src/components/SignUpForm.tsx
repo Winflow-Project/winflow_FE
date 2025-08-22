@@ -41,12 +41,12 @@ export default function SignupForm() {
         const payload = { email, password };
 
         signupMutation.mutate(payload, {
-            onSuccess: (_data) => {
+            onSuccess: () => {
                 dispatch(setpendingEmail(email));
                 toast.success('Signup successful! 🎉');
                 router.push('/Pages/Otp');
             },
-            onError: (error: any) => {
+            onError: (error) => {
                 const msg =
                     error?.response?.data?.message ||
                     error?.message ||
@@ -63,7 +63,7 @@ export default function SignupForm() {
                 <LeftSignup />
 
                 {/* Right Side */}
-                <div className="flex flex-col items-center w-full">
+                <div className="flex flex-col items-center w-dvh">
                     <form
                         onSubmit={handleSubmit}
                         className="w-full p-8 rounded-lg border border-gray-300 bg-white shadow-sm"
@@ -120,14 +120,14 @@ export default function SignupForm() {
                                 <span
                                     key={i}
                                     className={`flex items-center gap-1 ${rule.valid
-                                            ? 'text-green-600'
-                                            : 'text-gray-400'
+                                        ? 'text-green-600'
+                                        : 'text-gray-400'
                                         }`}
                                 >
                                     <span
                                         className={`w-2 h-2 rounded-full ${rule.valid
-                                                ? 'bg-green-500'
-                                                : 'bg-gray-300'
+                                            ? 'bg-green-500'
+                                            : 'bg-gray-300'
                                             }`}
                                     ></span>
                                     {rule.label}

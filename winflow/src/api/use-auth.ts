@@ -52,7 +52,7 @@ export const useSignUpMutation = () => {
 
     return useMutation<AuthResponse, Error, SignUpPayload>({
         mutationFn: async (data) => {
-            const { _type, ...rest } = data;
+            const { ...rest } = data;
             return authService.signup(rest); // API call
         },
         onSuccess: (response) => {

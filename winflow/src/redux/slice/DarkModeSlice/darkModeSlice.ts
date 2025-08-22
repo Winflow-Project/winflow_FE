@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface DarkModeState {
-    darkMode: any;
+    darkMode: unknown;
     enabled: boolean;
 }
 

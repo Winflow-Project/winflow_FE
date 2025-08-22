@@ -15,7 +15,7 @@ export default function LoginForm() {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
-    const [touched, setTouched] = useState({ email: false, password: false });
+    const [, setTouched] = useState({ email: false, password: false });
 
     const router = useRouter();
     const loginMutation = useLoginMutation();
@@ -39,7 +39,7 @@ export default function LoginForm() {
                 }
                 router.push('/dashboard');
             },
-            onError: (error: any) => {
+            onError: (error) => {
                 const msg =
                     error?.response?.data?.message ||
                     error?.message ||
