@@ -19,7 +19,7 @@ export default function OtpPage2() {
 
                         <div className="flex flex-col">
                             <Link href="/Pages/Personalize" className=" text-green-600 py-2 px-4 rounded-md transition duration-300 text-center flex flex-row items-center">
-                                Proceed to personalize <Image src="/left-arrow-stroke.svg" width={150} height={50} alt="left arrow" />
+                                Proceed to personalize <Image src="/left-arrow-stroke.svg" width={40} height={30} alt="left arrow" />
                             </Link>
 
                             <Link href="/home" className=" py-2 px-4 rounded-md text-black transition duration-300 text-center">

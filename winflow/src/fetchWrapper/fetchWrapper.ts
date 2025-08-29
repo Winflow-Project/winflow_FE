@@ -28,10 +28,7 @@ const createAxiosInstance = (
         (config: InternalAxiosRequestConfig) => {
             if (includeAuthHeader) {
                 const token = sessionStorage.getItem(tokenKey) || "null";
-                config.headers = {
-                    ...config.headers,
-                    Authorization: `Bearer ${token}`,
-                };
+                config.headers.set('Authorization', `Bearer ${token}`);
             }
             // config.headers["TenantId"] = process.env.NEXT_PUBLIC_TENANT_ID;
 
@@ -81,15 +78,15 @@ const createAxiosInstance = (
 
 // Wrapper function to create CRUD operations
 const createFetchWrapper = (instance: AxiosInstance) => ({
-    get: <T = any>(url: string, config?: AxiosRequestConfig) =>
+    get: <T>(url: string, config?: AxiosRequestConfig) =>
         instance.get<T>(url, config),
-    post: <T = any>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+    post: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
         instance.post<T>(url, data, config),
-    patch: <T = any>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+    patch: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
         instance.patch<T>(url, data, config),
-    put: <T = any>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
+    put: <T>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
         instance.put<T>(url, data, config),
-    delete: <T = any>(url: string, config?: AxiosRequestConfig) =>
+    delete: <T>(url: string, config?: AxiosRequestConfig) =>
         instance.delete<T>(url, config),
 });
 

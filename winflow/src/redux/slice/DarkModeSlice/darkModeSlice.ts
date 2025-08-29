@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface DarkModeState {
-    darkMode: any;
     enabled: boolean;
 }
 
 const initialState: DarkModeState = {
     enabled: false,
-    darkMode: undefined
 };
 
 const darkModeSlice = createSlice({

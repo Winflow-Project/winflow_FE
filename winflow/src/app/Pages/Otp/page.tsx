@@ -60,7 +60,7 @@ export default function OTPPage() {
                     toast.success("OTP verified successfully 🎉");
                     router.push("/Pages/OtpSuccess");
                 },
-                onError: (err: any) => {
+                onError: (err) => {
                     toast.error(err?.message || "Invalid OTP, try again.");
                 },
             }
