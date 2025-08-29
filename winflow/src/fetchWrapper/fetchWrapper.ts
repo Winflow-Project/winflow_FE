@@ -28,10 +28,7 @@ const createAxiosInstance = (
         (config: InternalAxiosRequestConfig) => {
             if (includeAuthHeader) {
                 const token = sessionStorage.getItem(tokenKey) || "null";
-                config.headers = {
-                    ...config.headers,
-                    Authorization: `Bearer ${token}`,
-                };
+                config.headers.set('Authorization', `Bearer ${token}`);
             }
             // config.headers["TenantId"] = process.env.NEXT_PUBLIC_TENANT_ID;
 

@@ -1,17 +1,21 @@
 import React from "react";
 
 interface MoonIconProps {
-    onClick: () => void;
+  className?: string;
 }
 
-export default function MoonIcon({ onClick }: MoonIconProps) {
-    return (
-        <button
-            onClick={onClick}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            aria-label="Disable Dark Mode"
-        >
-            🌙
-        </button>
-    );
-}
+export const MoonIcon: React.FC<MoonIconProps> = ({ className = "" }) => {
+  return (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+};
+
+export default MoonIcon;
