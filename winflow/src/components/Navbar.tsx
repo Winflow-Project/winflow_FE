@@ -4,6 +4,7 @@ import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Button from "./Button";
 import DarkModeToggle from "./DarModeToggle/DarkModeToggle";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,18 +14,18 @@ export default function Navbar() {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold cursor-pointer">
-          <span className="text-black dark:text-white">Win</span>
-          <span className="text-purple-600 italic">Flow</span>
+          <Image src="/Group1.png" alt="winflow Logo" width={100} height={100} />
+
         </div>
 
         {/* Dark Mode Toggle */}
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
           <DarkModeToggle />
-        </div>
+        </div> */}
 
         {/* Hamburger Menu (Mobile) */}
         <div className="md:hidden flex items-center gap-3">
-          <DarkModeToggle />
+          {/* <DarkModeToggle /> */}
           <Button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </Button>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 type FAQItem = {
   question: string;
@@ -59,8 +60,24 @@ const FAQAccordion = () => {
             onClick={() => toggleAccordion(index)}
           >
             {item.question}
-            <span className="text-gray-600 dark:text-gray-300">
-              {activeIndex === index ? "-" : "▿∨"}
+            <span>
+              {activeIndex === index ? (
+                <Image
+                  src="/down.png"
+                  alt="Collapse"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+              ) : (
+                <Image
+                  src="/down.png"
+                  alt="Expand"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+              )}
             </span>
           </button>
           {activeIndex === index && (
