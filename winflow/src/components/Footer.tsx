@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Button from "./Button";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -14,10 +15,10 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left Section: Logo + Newsletter */}
         <div>
-          <h2 className="text-xl font-bold">
-            <span className="text-black dark:text-white">Win</span>
-            <span className="text-purple-600 italic">Flow</span>
-          </h2>
+          <div className="text-xl font-bold cursor-pointer">
+            <Image src="/Group1.png" alt="winflow Logo" width={100} height={100} />
+
+          </div>
           <p className="mt-2 text-sm">
             Where Knowledge Flows, Innovation Thrives, <br />
             and Expertise Connects.

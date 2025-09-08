@@ -1,9 +1,23 @@
+import Image from "next/image";
+
 export default function ConversationSection() {
   const features = [
-    "Ask and answer questions",
-    "Create threads to share your learning journey",
-    "Follow topics and interests that suit your personality",
-    "Upvote and downvote on a thread",
+    {
+      text: "Ask and answer questions",
+      icon: "/ask.png",
+    },
+    {
+      text: "Create threads to share your learning journey",
+      icon: "/follow.png",
+    },
+    {
+      text: "Follow topics and interests that suit your personality",
+      icon: "/create.png",
+    },
+    {
+      text: "Upvote and downvote on a thread",
+      icon: "/upvote.png",
+    },
   ];
 
   return (
@@ -24,12 +38,19 @@ export default function ConversationSection() {
 
       {/* Features list */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
-        {features.map((feature, index) => (
+        {features.map(({ text, icon }, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-[#2a2a2a] p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white dark:bg-[#2a2a2a] p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center gap-4"
           >
-            <p className="text-gray-800 dark:text-white">{feature}</p>
+            <Image
+              src={icon}
+              alt={text}
+              width={40}
+              height={40}
+              className="w-8 h-8 object-contain"
+            />
+            <p className="text-gray-800 dark:text-white">{text}</p>
           </div>
         ))}
       </div>
