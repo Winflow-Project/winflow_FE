@@ -33,9 +33,9 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 text-sm">
-          <span className="cursor-pointer hover:opacity-80 text-gray-500 dark:text-gray-300">
+          <a href="#core-values" className="cursor-pointer hover:opacity-80 text-gray-500 dark:text-gray-300">
             Core Values
-          </span>
+          </a>
           <span
             onClick={() =>
               document

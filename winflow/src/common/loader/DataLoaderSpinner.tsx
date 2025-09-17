@@ -1,6 +1,6 @@
 'use client';
 
-import './dataLoader.css';
+// import "./DataLoaderSpinner.css";
 
 type DataLoadingSpinnerProps = {
     main?: boolean;
