@@ -1,8 +1,8 @@
 import { HiHeart, HiShare } from "react-icons/hi"
 import { FiMessageCircle, FiMoreHorizontal } from "react-icons/fi"
-// import { Heart, MessageCircle, Share, MoreHorizontal } from "lucide-react"
 import Button from "./Button"
 import { Card, CardContent, CardFooter, CardHeader } from "./Card"
+import Image from "next/image"
 
 interface Post {
     id: number
@@ -43,7 +43,7 @@ export function PostCard({ post }: PostCardProps) {
             <CardContent className="pb-3">
                 <p className="text-card-foreground mb-4 leading-relaxed">{post.content}</p>
                 <div className="rounded-lg overflow-hidden">
-                    <img src={post.image || "/placeholder.svg"} alt="Post content" className="w-full h-48 object-cover" />
+                    <Image src={post.image || "/placeholder.svg"} alt="Post content" className="w-full h-48 object-cover" />
                 </div>
             </CardContent>
 

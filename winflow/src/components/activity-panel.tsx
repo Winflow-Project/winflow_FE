@@ -1,96 +1,116 @@
-// import { TrendingUp, Users, Calendar } from "lucide-react"
-import { FiTrendingUp, FiUser, FiCalendar } from "react-icons/fi"
-import { Card, CardContent, CardHeader, CardTitle } from "./Card"
-import Button from "./Button"
-const trendingTopics = [
-    { name: "#WebDevelopment", posts: "2.4k posts" },
-    { name: "#ReactJS", posts: "1.8k posts" },
-    { name: "#DesignSystems", posts: "1.2k posts" },
-    { name: "#TypeScript", posts: "956 posts" },
-]
+import { FiHeart, FiMessageCircle, FiShare2 } from "react-icons/fi"
+import Image from "next/image"
 
-const suggestedUsers = [
-    { name: "Sarah Chen", username: "@sarahc", avatar: "/user-avatar-sarah.png" },
-    { name: "Mike Johnson", username: "@mikej", avatar: "/user-avatar-mike.jpg" },
-    { name: "Alex Rivera", username: "@alexr", avatar: "/user-avatar-alex.png" },
-]
-
-const upcomingEvents = [
-    { name: "Design Workshop", date: "Dec 15", attendees: 24 },
-    { name: "Tech Meetup", date: "Dec 18", attendees: 156 },
-    { name: "Code Review", date: "Dec 20", attendees: 8 },
+const trendingPosts = [
+    {
+        id: 1,
+        user: {
+            name: "Henry Jay",
+            avatar: "/user-avatar.png",
+        },
+        time: "2 days ago",
+        content: "Lorem ipsum nisl fermentum turpis nisi sed ipsum duis mauris.",
+        image: "/thumbnail-1.png",
+        likes: "1.5k",
+        comments: "233",
+    },
+    {
+        id: 2,
+        user: {
+            name: "Henry Jay",
+            avatar: "/user-avatar.png",
+        },
+        time: "2 days ago",
+        content: "Lorem ipsum nisl fermentum turpis nisi sed ipsum duis mauris.",
+        image: "/thumbnail-2.png",
+        likes: "1.5k",
+        comments: "233",
+    },
+    {
+        id: 3,
+        user: {
+            name: "Henry Jay",
+            avatar: "/user-avatar.png",
+        },
+        time: "2 days ago",
+        content: "Lorem ipsum nisl fermentum turpis nisi sed ipsum duis mauris.",
+        image: "/thumbnail-3.png",
+        likes: "1.5k",
+        comments: "233",
+    },
 ]
 
 export function ActivityPanel() {
     return (
-        <aside className="w-80 p-6 space-y-6 h-[calc(100vh-4rem)] overflow-y-auto">
-            <Card>
-                <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center gap-2">
-                        <FiTrendingUp className="h-5 w-5 text-primary" />
-                        Trending Topics
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {trendingTopics.map((topic) => (
-                        <div key={topic.name} className="flex items-center justify-between">
-                            <div>
-                                <p className="font-medium text-foreground">{topic.name}</p>
-                                <p className="text-sm text-muted-foreground">{topic.posts}</p>
-                            </div>
-                        </div>
-                    ))}
-                </CardContent>
-            </Card>
+        <aside className="w-80 p-4 h-[calc(100vh-4rem)] overflow-y-auto">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+                <h2 className="font-semibold text-gray-900">Trending</h2>
+                <button className="text-sm text-gray-500 hover:text-gray-700">
+                    See all
+                </button>
+            </div>
 
-            <Card>
-                <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center gap-2">
-                        <FiUser className="h-5 w-5 text-primary" />
-                        Suggested Users
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    {suggestedUsers.map((user) => (
-                        <div key={user.username} className="flex items-center justify-between">
+            {/* Trending posts */}
+            <div className="space-y-4">
+                {trendingPosts.map((post) => (
+                    <div
+                        key={post.id}
+                        className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 space-y-3"
+                    >
+                        {/* User info */}
+                        <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                {/* <Avatar className="h-8 w-8">
-                                    <AvatarImage src={user.avatar || "/placeholder.svg"} />
-                                    <AvatarFallback>{user.name[0]}</AvatarFallback>
-                                </Avatar> */}
+                                <Image
+                                    src={post.user.avatar}
+                                    alt={post.user.name}
+                                    width={32}
+                                    height={32}
+                                    className="rounded-full"
+                                />
                                 <div>
-                                    <p className="font-medium text-foreground text-sm">{user.name}</p>
-                                    <p className="text-xs text-muted-foreground">{user.username}</p>
+                                    <p className="text-sm font-medium text-gray-900">
+                                        {post.user.name}
+                                    </p>
+                                    <p className="text-xs text-gray-500">{post.time}</p>
                                 </div>
                             </div>
-                            <Button size="sm" variant="outline" className="text-xs bg-transparent">
-                                Follow
-                            </Button>
+                            <button className="text-gray-400 hover:text-gray-600">⋮</button>
                         </div>
-                    ))}
-                </CardContent>
-            </Card>
 
-            <Card>
-                <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center gap-2">
-                        <FiCalendar className="h-5 w-5 text-primary" />
-                        Upcoming Events
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {upcomingEvents.map((event) => (
-                        <div key={event.name} className="flex items-center justify-between">
-                            <div>
-                                <p className="font-medium text-foreground text-sm">{event.name}</p>
-                                <p className="text-xs text-muted-foreground">
-                                    {event.date} • {event.attendees} attending
-                                </p>
+                        {/* Content */}
+                        <div className="flex gap-3">
+                            {post.image && (
+                                <Image
+                                    src={post.image}
+                                    alt="Post thumbnail"
+                                    width={48}
+                                    height={48}
+                                    className="rounded-md object-cover"
+                                />
+                            )}
+                            <p className="text-sm text-gray-700 line-clamp-3">
+                                {post.content}
+                            </p>
+                        </div>
+
+                        {/* Stats */}
+                        <div className="flex items-center gap-6 text-sm text-gray-500">
+                            <div className="flex items-center gap-1">
+                                <FiHeart className="h-4 w-4" />
+                                {post.likes}
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FiMessageCircle className="h-4 w-4" />
+                                {post.comments}
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FiShare2 className="h-4 w-4" />
                             </div>
                         </div>
-                    ))}
-                </CardContent>
-            </Card>
+                    </div>
+                ))}
+            </div>
         </aside>
     )
 }

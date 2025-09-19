@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Button from "./Button";
-import DarkModeToggle from "./DarModeToggle/DarkModeToggle";
 import Image from "next/image";
 
 export default function Navbar() {
