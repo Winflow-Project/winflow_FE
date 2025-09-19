@@ -54,7 +54,17 @@ export const authService = {
         sessionStorage.setItem("token", response.data.access);
         return response.data;
     },
-
+    // Thread
+    createThread: async (payload: { title: string, description: string }): Promise<any> => {
+        const response: AxiosResponse = await fetchFormWrapper.post(
+            "/thread",
+            payload,
+            {
+                headers: { "Content-Type": "application/json" },
+            }
+        );
+        return response.data;
+    },
 
 
     forgotPassword: async (

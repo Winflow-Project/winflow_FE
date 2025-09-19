@@ -10,6 +10,10 @@ import Button from "./Button";
 import Image from "next/image";
 
 export default function Footer() {
+
+  const handleAboutUsClick = () => {
+    window.location.href = "/about";
+  }
   return (
     <footer className="bg-purple-50 dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300 px-6 md:px-16 py-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -49,7 +53,7 @@ export default function Footer() {
           <h3 className="font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm cursor-pointer">
             <li>Home</li>
-            <li>About Us</li>
+            <li onClick={handleAboutUsClick}>About Us</li>
             <li>Explore</li>
             <li>Recent</li>
           </ul>

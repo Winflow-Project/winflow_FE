@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Button from "./Button";
-import DarkModeToggle from "./DarModeToggle/DarkModeToggle";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -33,9 +32,9 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 text-sm">
-          <span className="cursor-pointer hover:opacity-80 text-gray-500 dark:text-gray-300">
+          <a href="#core-values" className="cursor-pointer hover:opacity-80 text-gray-500 dark:text-gray-300">
             Core Values
-          </span>
+          </a>
           <span
             onClick={() =>
               document

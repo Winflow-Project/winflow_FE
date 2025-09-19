@@ -38,7 +38,7 @@ export default function CoreValue() {
   ];
 
   return (
-    <div className="bg-white dark:bg-[#1a1a1a] py-12">
+    <div id="core-values" className="bg-white dark:bg-[#1a1a1a] py-12">
       <section className="flex flex-col items-center text-center mb-12 px-4">
         <div className="flex items-center gap-4 my-4">
           <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
